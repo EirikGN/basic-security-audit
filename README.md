@@ -8,11 +8,10 @@ The script can be useful for simple system reviews.
 
 ## What the script checks
 
-- **Firewall:** Checks if the UFW firewall is active (skipped when running in WSL).  
-- **SSH root login:** Checks whether root login is allowed in "/etc/ssh/sshd_config".  
-- **Critical files:** Shows permissions for `/etc/passwd` and "/etc/shadow".  
-- **UID 0 users:** Lists users that have administrative (root) privileges.  
-- **Updates:** Lists how many software packages can be updated.  
+- **Firewall:** Checks whether UFW (Uncomplicated Firewall) is active. This check is skipped when running in WSL.  
+- **SSH root login:** Checks whether root login is allowed in `/etc/ssh/sshd_config`.  
+- **Critical files:** Shows file permissions for `/etc/passwd` and `/etc/shadow`.  
+- **UID 0 users:** Lists accounts that have UID 0 (full root privileges).
 
 ---
 
@@ -32,13 +31,21 @@ The script will detect WSL and print a note when this happens.
 
 ## Example output
 === Basic Linux Security Audit ===
-[Info] Running inside WSL — some checks may not reflect a real Linux system
-[Firewall] WSL detected — cannot reliably check firewall
-[SSH] PermitRootLogin not set
-[File] /etc/passwd permissions: 644
-[File] /etc/shadow permissions: 640
-[UID0] Users with UID 0: root
-[Updates] 110 packages can be updated
+
+- [Info] Running inside WSL — some checks may not reflect a real Linux system
+
+- [Firewall] WSL detected — cannot reliably check firewall
+
+- [SSH] PermitRootLogin not set
+
+- [File] /etc/passwd permissions: 644
+
+- [File] /etc/shadow permissions: 640
+
+- [UID0] Users with UID 0: root
+
+- [Updates] 110 packages can be updated
+
 === Audit Complete ===
 
 ---
